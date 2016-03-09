@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBAction func digitPressed(sender: UIButton) {
         let digit = sender.currentTitle!
         print("digit equals \(digit)")
+        
+        display.text! += digit
     }
     override func viewDidLoad() {
         super.viewDidLoad()
