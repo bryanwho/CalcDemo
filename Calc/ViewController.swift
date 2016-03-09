@@ -47,7 +47,12 @@ class ViewController: UIViewController {
     
     @IBAction func operandPressed(sender: UIButton) {
         //add latest value to stack
-        
+
+        userIsTyping = false
+        stack.append(displayValue)
+        displayValue = 0
+        print(stack)
+
         
         
     }
