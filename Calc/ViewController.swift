@@ -48,12 +48,15 @@ class ViewController: UIViewController {
     
     
     @IBAction func operandPressed(sender: UIButton) {
-        //add latest value to stack
+        //add latest value to stack if there are no values present yet
 
-        userIsTyping = false
-        stack.append(displayValue)
-        displayValue = 0
-        print(stack)
+        if stack.count < 1 && userIsTyping {
+            userIsTyping = false
+            stack.append(displayValue)
+            displayValue = 0
+            print(stack)
+        }
+        
 
         
         
