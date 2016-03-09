@@ -12,9 +12,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
     var userIsTyping: Bool = false
+    var currentOperand: String? = nil
     
     //used to maintain stack of current values
     var stack = Array<Double>()
+    
     
     var displayValue: Double {
         
