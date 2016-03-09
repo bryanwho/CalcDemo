@@ -11,12 +11,19 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    var userIsTyping: Bool = false
     
     @IBAction func digitPressed(sender: UIButton) {
         let digit = sender.currentTitle!
         print("digit equals \(digit)")
         
-        display.text! += digit
+        if userIsTyping {
+            display.text! += digit
+        } else {
+            userIsTyping = true
+            display.text = digit
+        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
