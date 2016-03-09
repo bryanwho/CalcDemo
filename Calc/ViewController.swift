@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var display: UILabel!
     var userIsTyping: Bool = false
     
+    //used to maintain stack of current values
+    var stack = Array<Double>()
+    
     @IBAction func digitPressed(sender: UIButton) {
         let digit = sender.currentTitle!
         print("digit equals \(digit)")
@@ -25,6 +28,16 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
+    @IBAction func operandPressed(sender: UIButton) {
+        //add latest value to stack
+        
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
