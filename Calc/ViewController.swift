@@ -16,6 +16,21 @@ class ViewController: UIViewController {
     //used to maintain stack of current values
     var stack = Array<Double>()
     
+    var displayValue: Double {
+        
+        get {
+            //get the double value from the display.text String optional
+            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+        }
+        
+        //set the display.text from the Double value
+        //the user is no longer typing after setting the latest value
+        set {
+            display.text = "\(newValue)"
+            userIsTyping = false
+        }
+    }
+    
     @IBAction func digitPressed(sender: UIButton) {
         let digit = sender.currentTitle!
         print("digit equals \(digit)")
