@@ -48,7 +48,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func operandPressed(sender: UIButton) {
-        let operand = sender.currentTitle!
+        let operand : String? = sender.currentTitle! == "=" ? nil : sender.currentTitle!
+        
         
         //add latest value to stack if there are no values present yet
         if stack.count < 1 && userIsTyping {
