@@ -48,6 +48,8 @@ class ViewController: UIViewController {
     
     
     @IBAction func operandPressed(sender: UIButton) {
+        let operand = sender.currentTitle!
+        
         //add latest value to stack if there are no values present yet
         if stack.count < 1 && userIsTyping {
             userIsTyping = false
@@ -56,6 +58,18 @@ class ViewController: UIViewController {
             print(stack)
         }
         
+        //use values on stack to perform the proper operation
+        if stack.count == 1 && userIsTyping {
+            switch currentOperand! {
+            case "÷": performOperation {$1 / $0}
+            case "×": performOperation(*)
+            case "−": performOperation {$1 - $0}
+            case "+": performOperation(+)
+            default: return
+            }
+        }
+        
+        currentOperand = operand
     }
     
     func performOperation(operation: (Double, Double) -> Double) {
