@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         
         get {
             //get the double value from the display.text String optional
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            return Double(display.text!)!
         }
         
         //set the display.text from the Double value
@@ -57,6 +57,11 @@ class ViewController: UIViewController {
             stack.append(displayValue)
             displayValue = 0
             print(stack)
+        }
+        
+        if currentOperand == nil {
+            currentOperand = operand
+            return
         }
         
         //use values on stack to perform the proper operation
