@@ -49,7 +49,6 @@ class ViewController: UIViewController {
     
     @IBAction func operandPressed(sender: UIButton) {
         //add latest value to stack if there are no values present yet
-
         if stack.count < 1 && userIsTyping {
             userIsTyping = false
             stack.append(displayValue)
@@ -57,11 +56,13 @@ class ViewController: UIViewController {
             print(stack)
         }
         
-
-        
-        
     }
     
+    func performOperation(operation: (Double, Double) -> Double) {
+        displayValue = operation(displayValue, stack.removeLast())
+        stack.append(displayValue)
+        userIsTyping = false
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
